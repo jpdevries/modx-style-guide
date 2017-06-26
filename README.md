@@ -284,7 +284,7 @@ There is no point in loading a common framework or library if a sufficient versi
 ```
 
 ### Handling Requests
-Don't worry about taking measures to reduce the number of HTTP within your component or the Manager at large. Reducing HTTP requests is a dated technique for optimizing HTTP/1 website. This technique becomes an anti&ndash;pattern when applied to web applications such as the Manager. Futhermore, the number of requests even for websites are no longer a concern with HTTP/2. 
+Don't worry about taking measures to reduce the number of HTTP requests within your component or the Manager at large. Reducing HTTP requests is a dated technique for optimizing HTTP/1 website. This technique becomes an anti&ndash;pattern when applied to web applications such as the Manager. Futhermore, the number of requests even for websites are no longer a concern with HTTP/2. 
 
 ### Serving Assets
 Smaller more specific files allows for components to leverage the browser cache more effictevly across multiple Manager pages. So relax, don't worry about combining them. Ideally set far-future reaching expity dates, cachebust assets by changing the filename each time an update to the file is made, and tune MODX and the Manager by hosting them over HTTPS with HTTP/2. Also, provided an additional layer of cacheing with a service&nbsp;worker.
