@@ -163,6 +163,10 @@ ReactDOM.render(<MyEverything />, document.body);
 ### Syntax Sugar
 We recommend writing modern JavaScript with syntax sugar and running it through Babel to transpile it back to ES5 for production as/if&nbsp;necessary. Feel free to take advantage of new syntax sugar like `const`, `let`, arrow functions, Promises, async/await and&nbsp;more.
 
+**See Also**
+
+ - [Babel](https://babeljs.io)
+
 ## Asynchronous Requests 
 AJAX requests use the Promise based Fetch API. For example we'd request a JSON response containing an array of all resources like&nbsp;so:
 
@@ -278,6 +282,12 @@ There is no point in loading a common framework or library if a sufficient versi
 <!-- check if we need jQuery, then if needed attempt to load jQuery from a CDN -->
 <script>window.jQuery || document.write('<script src="//code.jquery.com/jquery-3.2.0.min.js" integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous"><\/script>')</script>
 ```
+
+### Handling Requests
+Don't worry about taking measures to reduce the number of HTTP within your component or the Manager at large. Reducing HTTP requests is a dated technique for optimizing HTTP/1 website. This technique becomes an anti&ndash;pattern when applied to web applications such as the Manager. Futhermore, the number of requests even for websites are no longer a concern with HTTP/2. 
+
+### Serving Assets
+Smaller more specific files allows for components to leverage the browser cache more effictevly across multiple Manager pages. So relax, don't worry about combining them. Ideally change the filename each time an update to the file is made and if possible, tune MODX and the Manager by hosting them over HTTPS with HTTP/2.
 
 ### Cachebusting Assets
 To leverage the browser cache and ensure that the cache is flushed when updates are made it is important to include a version number or some type of unique hash within your assets file name. For example instead of `app.js` you'd name your file&nbsp;`app.1.0.0.js`.
