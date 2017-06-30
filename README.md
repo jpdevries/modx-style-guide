@@ -1,6 +1,6 @@
 # A MODX Developer's Front End Style Guide
 
-HTML is initially performant, optimal, and accessible. So we recommend starting your components HTML&ndash;first. The default MODX theme uses modern JavaScript that is transpiled with Babel, HTML 5.x, and future forward&nbsp;CSS. 
+HTML is initially performant, optimal, and accessible. So we recommend starting your components HTML&ndash;first. The default MODX theme uses modern JavaScript that is transpiled with Babel, HTML 5.x, and future forward&nbsp;CSS.  
 
 Within M5BP (MODX HTML5 Boilerplate), you'll find several common components that are free for you to use. All components are built with HTML+(S)CSS. Components are optionally enhanced with one or more JavaScript drivers. The MODX core team and MODX Advisory Board have chosen to enhance core components using `_____` so if you do as well you can ejoy additional&nbsp;tooling.  
 
