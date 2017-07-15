@@ -328,34 +328,35 @@ Thus far we've explored HTML patterns to load scripts. You can also load your de
 ```js
 import lazyLoadScript from 'lazyload-script';
 
-const promises = [];
+const promises = [],
+tryCDN = true; // imagine there is a MODX System Setting to configure this
 
 if(!React) promises.push(
   // try to load React from a CDN, fallback to a local copy 
-  lazyLoadScript("https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.min.js", "react.15.4.2.min.js").catch((err => (
-    lazyLoadScript(`./js/vendor/react.15.4.2.min.js`, "react.15.4.2.min.js")
-  )))
+  (tryCDN) ? lazyLoadScript("https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.min.js", "react.15.4.2.min.js").catch((err => (
+               lazyLoadScript(`./js/vendor/react.15.4.2.min.js`, "react.15.4.2.min.js")
+  ))) : lazyLoadScript(`./js/vendor/react.15.4.2.min.js`, "react.15.4.2.min.js")
 );
 
 if(!ReactDOM) promises.push(
   // try to load React DOM from a CDN, fallback to a local copy 
-  lazyLoadScript("https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.min.js", "react-dom.15.4.2.min.js").catch((err => {
-    lazyLoadScript(`./js/vendor/react-dom.15.4.2.min.js`, "react-dom.15.4.2.min.js")
-  }))
+  (tryCDN) ? lazyLoadScript("https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.min.js", "react-dom.15.4.2.min.js").catch((err => {
+               lazyLoadScript(`./js/vendor/react-dom.15.4.2.min.js`, "react-dom.15.4.2.min.js")
+  })) : lazyLoadScript(`./js/vendor/react-dom.15.4.2.min.js`, "react-dom.15.4.2.min.js")
 );
 
 if(!Redux) promises.push(
   // try to load Redux from a CDN, fallback to a local copy 
-  lazyLoadScript("https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux.min.js", "redux.3.6.0.min.js").catch((err => {
-    lazyLoadScript(`./js/vendor/redux.3.6.0.min.js`, "redux.3.6.0.min.js")
-  }))
+  (tryCDN) ? lazyLoadScript("https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux.min.js", "redux.3.6.0.min.js").catch((err => {
+               lazyLoadScript(`./js/vendor/redux.3.6.0.min.js`, "redux.3.6.0.min.js")
+  })) : lazyLoadScript(`./js/vendor/redux.3.6.0.min.js`, "redux.3.6.0.min.js")
 );
 
 if(!ReactRedux) promises.push(
   // try to load React Redux from a CDN, fallback to a local copy 
-  lazyLoadScript("https://cdnjs.cloudflare.com/ajax/libs/react-redux/5.0.3/react-redux.min.js", "react-redux.5.0.3.min.js").catch((err => {
-    lazyLoadScript(`./js/vendor/react-redux.5.0.3.min.js`, "react-redux.5.0.3.min.js")
-  }))
+  (tryCDN) ? lazyLoadScript("https://cdnjs.cloudflare.com/ajax/libs/react-redux/5.0.3/react-redux.min.js", "react-redux.5.0.3.min.js").catch((err => {
+               lazyLoadScript(`./js/vendor/react-redux.5.0.3.min.js`, "react-redux.5.0.3.min.js")
+  })) : lazyLoadScript(`./js/vendor/react-redux.5.0.3.min.js`, "react-redux.5.0.3.min.js")
 );
  
 Promise.all(promises).then(() => {
